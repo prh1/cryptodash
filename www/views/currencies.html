@@ -1,0 +1,20 @@
+﻿<div class="row form-group">
+    <div class="col-lg-2 lead">
+        Cryptocurrency values
+    </div>
+    <div class="col-lg-10 form-inline">
+        <label for="filter">Filter:</label>
+        <input class="form-control" ng-model="vm.data.filter" id="filter" />
+        <label for="timespan">% change last:</label>
+        <select class="form-control" id="timespan" ng-model="vm.data.timespan">
+            <option value="percent_change_1h">1 hour</option>
+            <option value="percent_change_24h">24 hours</option>
+            <option value="percent_change_7d">7 days</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-md-4" ng-repeat="(key, value) in vm.currencies | coin: vm.data.filter">
+        <coin-widget coin="value" timespan="vm.data.timespan" direction="vm.getDirection(value[vm.data.timespan])"></coin-widget>
+    </div>
+</div>

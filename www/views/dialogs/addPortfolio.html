@@ -1,0 +1,15 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Add a new portfolio</h3>
+</div>
+<div class="modal-body" id="modal-body form-group">
+    <div class="row">
+        <div class="col-xs-12">
+            <label for="portfolioName">Portfolio name:</label>
+            <input class="form-control" id="portfolioName" ng-maxlength="50" ng-model="vm.newPortfolioName" />
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="vm.addPortfolio()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="vm.dialogCancel()">Cancel</button>
+</div>

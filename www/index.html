@@ -1,0 +1,64 @@
+﻿<html ng-app="coinDashboard">
+<head>
+    <script src="js/lib/angular.js"></script>
+    <script src="js/lib/angular-route.js"></script>
+    <script src="js/lib/angular-toastr.js"></script>
+    <script src="js/lib/ui-bootstrap.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/coin/coinDirectives.js"></script>
+    <script src="js/coin/coinFilters.js"></script>
+    <script src="js/currency/currencyController.js"></script>
+    <script src="js/currency/currencyService.js"></script>
+    <script src="js/dashboard/dashboardController.js"></script>
+    <script src="js/portfolio/portfolioController.js"></script>
+    <script src="js/data/dataService.js"></script>
+    <script src="js/state/stateService.js"></script>
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+<body ng-controller="dashboardController as vm">
+    <div id="wrapper" class="clearfix">
+        <nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0; padding: 5px">
+            <div class="form-inline row">
+                <div class="col-xs-4">
+                    <span class="lead" style="line-height: 2em;">Cryptocurrency dashboard </span>
+                </div>
+                <div class="col-xs-8 text-right">
+                    <label for="refresh">Update every:</label>
+                    <select class="form-control" id="timespan" ng-model="vm.data.refreshRate">
+                        <option value="15000">15 seconds</option>
+                        <option value="60000">1 minute</option>
+                        <option value="300000">5 minutes</option>
+                        <option value="36000000">1 hour</option>
+                        <option value="0">Manual</option>
+                    </select>
+                    <span ng-if='vm.data.lastUpdated != null'>
+                        (last updated {{vm.data.lastUpdated | date: 'medium' }})
+                    </span>
+                    <button class="btn btn-default" ng-click="vm.refreshCurrencies()">Refresh now</button>
+                </div>
+            </div>
+        </nav>
+     </div>
+    <div id="sidebar-wrapper">
+        <div class="navbar-fixed-left sidebar" role="navigation">
+            <div class="sidebar-nav">
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <a href="#!currencies" ng-class="{active: vm.isActive('/currencies')}" >All Currencies</a>
+                    </li>
+                    <li>
+                        <a href="#!managePortfolio" ng-class="{active: vm.isActive('/managePortfolio')}">Manage my portfolios</a>
+                    </li>
+                    <li>
+                        <a href="#!notes" ng-class="{active: vm.isActive('/notes')}">Notes</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="page-wrapper">
+        <div ng-view>
+        </div>
+    </div>
+</body>
+</html>

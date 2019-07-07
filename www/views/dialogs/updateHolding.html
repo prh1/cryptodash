@@ -1,0 +1,15 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Update amount of currency held - {{vm.updating.symbol}}</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <div class="row">
+        <div class="col-xs-12">
+            <input type="number" class="form-control" id="holdingAmount" min="0" ng-model="vm.updating.amount" />
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="vm.updateHolding()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="vm.dialogCancel()">Cancel</button>
+</div>
+

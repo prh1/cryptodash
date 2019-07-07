@@ -1,0 +1,53 @@
+﻿<div class="row form-group">
+    <div class="col-lg-6 lead">
+        Portfolio value: {{vm.data.grandTotal | currency }}
+        <button class="btn btn-primary" ng-click="vm.showDialog('addHolding')">Add new currency holding</button>
+    </div>
+    <div class="col-lg-6 form-inline">
+        <label for="filter">Select portfolio:</label>
+        <select class="form-control" id="timespan" ng-model="vm.data.currentPortfolio">
+            <option ng-repeat="portfolio in vm.data.portfolios" value="{{portfolio.portfolio_id}}">{{portfolio.name}}</option>
+        </select>
+        <button class="btn btn-primary" ng-click="vm.showDialog('addPortfolio')">Add new portfolio</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4" ng-repeat="(index, holding) in vm.data.holdings">
+        <div class="panel panel-primary shadow coindata">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div>{{holding.amount | coinamount}} coins</div>
+                        <div>{{vm.currencies[holding.coin].price | currency}} each </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <i class="fa fa-pencil" ng-click="vm.showDialog('updateHolding', index)"></i>
+                        <i class="fa fa-close" ng-click="vm.showDialog('deleteHolding', index)"></i>
+                    </div>
+                    <div class="col-xs-4 text-right">
+                        <div>{{vm.currencies[holding.coin].symbol}}
+                        </div>
+                        <div>{{vm.currencies[holding.coin].name}}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 lead text-info">
+                        <h2>
+                            <strong>{{holding.amount * vm.currencies[holding.coin].price | currency }}</strong>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="vm.data.holdings.length === 0" class="col-lg-6 col-md-6">
+        <div class="panel panel-secondary">
+            <div class="panel-heading">
+                You have no holdings in this portfolio, click on the "Add new currency holding" button to add new holdings.
+            </div>
+        </div>
+    </div>
+</div>
+
+

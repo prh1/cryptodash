@@ -1,0 +1,19 @@
+﻿<div class="panel panel-primary shadow coindata">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-xs-7">
+                <span class="lead">
+                    {{coin.price | currency}}
+                </span>
+                <span class="change-{{direction}}">
+                    <i class="fa fa-arrow-{{direction}}"></i>
+                    {{coin[timespan]}}%
+                </span>
+            </div>
+            <div class="col-xs-5 text-right">
+                <div>{{coin.symbol}}</div>
+                <div>{{coin.name}}</div>
+            </div>
+        </div>
+    </div>
+</div>

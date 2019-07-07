@@ -1,0 +1,50 @@
+﻿@import "lib/angular-toastr.less";
+@import "lib/font-awesome.less";
+@import "lib/bootstrap.css";
+
+#wrapper {
+    max-width: 100%;
+    overflow: hidden;
+}
+#page-wrapper {
+    padding: 10px 30px;    
+    width: calc(~"100% - 210px");
+    float: left;
+}
+
+.sidebar ul li a.active {
+  color: #eeeeee;
+}
+
+#sidebar-wrapper {
+    float: left;
+    width: 200px;
+}
+
+.shadow {
+    box-shadow: 3px 3px 3px #888;
+}
+
+.coindata {
+    .change-up {
+        color: lightgreen;
+        transition: 3s;
+    }
+    .change-down {
+        color: #9f0a0a;
+        transition: 3s;
+    }
+    .change-right {
+        color: yellow;
+        transition: 3s;
+    }
+
+    margin-bottom: 8px;
+    h2 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .lead {
+        margin-bottom: 2px;
+    }
+}

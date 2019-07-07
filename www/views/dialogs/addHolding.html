@@ -1,0 +1,23 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Add new currency to your portfolio</h3>
+</div>
+<div class="modal-body" id="modal-body form-group">
+    <div class="row">
+        <div class="col-xs-12">
+            <label for="currencySymbol">Currency Type:</label>
+            <select ng-model="vm.adding.symbol" id="currencySymbol" class="form-control">
+                <option ng-repeat="currency in vm.adding.availableCurrencies | orderBy: 'symbol'" value="{{currency.id}}">{{currency.symbol}} - ({{currency.name}})</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <label for="holdingAmount">Amount:</label>
+            <input type="number" class="form-control" id="holdingAmount" min="0" ng-model="vm.adding.amount" />
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="vm.addHolding()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="vm.dialogCancel()">Cancel</button>
+</div>

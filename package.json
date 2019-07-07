@@ -1,0 +1,19 @@
+{
+  "name": "cryptodash",
+  "version": "0.0.0",
+  "description": "cryptodash",
+  "main": "server.js",
+  "author": {
+    "name": "Paul Hodgson"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "log4js": "^2.5.2",
+    "pg": "^7.4.1",
+    "request": "^2.83.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
